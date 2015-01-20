@@ -1,0 +1,48 @@
+The program fall detection has two parts, one part for fall detection, another for drawing scene.
+
+For the first part I named it falldetecion, it modified from the sample NiSimplesketlon, and the second part drawScene I used the sample sceneDrawer .
+
+The fall detection part, it inspire from the sample NiSimpleSkeleton. The program need first read an pre-config xml file, and then it will create two generator :Usergenerator and Depthgenerator. After that it will try to track user, if it find user and finish calibration , we can start our fall detection.
+
+The fall detection process  three steps: first get all of joint point did by  function get getJointInfo(), the second calcul some parameter like velocity of height , velocity of  depth-width, did by function get_XYZ(), and last step is apply the fall detection algorithm to detect fall - detectFalling().
+
+The second part of the program is draw scene, that i used the sample sceneDrawer and did a little modification on it. It will draw scene in real time,and when detected a fall it will display on screen.
+
+For the more detail about the program, you can see the source code, I write the  comment to explain how it work.
+
+********************
+Execute  the Program
+********************
+-repertory Bin : all  program executable and the file “DataOut.txt”
+
+-repertory Conf : the pre-configuration  xml file “SamplesConfig.xml”
+
+-repertory NiDrawScene  : source code draw scene
+
+-repertory NiFallDetection : source code fall detection
+
+All the data necessaire will save in the file “DataOut.txt”.
+
+
+1- compile the first part - fall detection:
+
+cd NiFallDetection/
+
+make
+
+2 - compile the second part - draw scene:
+
+cd NiDrawScene/
+
+make
+
+3- execute the program fall detection
+
+cd BIn/x64-Release
+
+./Sample-NiFallDetection
+
+(if you do it on a x86 PC:
+
+cd BIn/x86-Release
+./Sample-NiFallDetection)
